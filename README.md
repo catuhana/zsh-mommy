@@ -53,3 +53,17 @@ Mommy is here to support you when you're running commands~
 
   Add `antigen bundle tuhanayim/zsh-plugin-mommy` to your `.zshrc`~
 </details>
+
+## Customization
+
+- `MOMMY_AFFECTIONATE_TERM` - what to call you~ (default: girl)
+- `MOMMY_MOMMYS_PRONOUN` - what pronouns mommy will use for themself~ (default: her)
+- `MOMMY_MOMMYS_ROLE` - what role mommy will have~ (default: mommy)
+
+To add new terms/pronouns/roles to mommy, simply add these to your `.zshrc`~
+
+```sh
+MOMMY_AFFECTIONATE_TERM+=(honey cat cutie)
+MOMMY_MOMMYS_PRONOUN+=(his their)
+MOMMY_MOMMYS_ROLE+=(daddy granny)
+```
