@@ -41,6 +41,10 @@ _plugin_mommy() {
   fi
 }
 
+precmd() {
+  : $RANDOM
+}
+
 create_response() {
   local random_affectionate_term=$(pick_random_value $MOMMY_AFFECTIONATE_TERM)
   local random_pronoun=$(pick_random_value $MOMMY_PRONOUN)
@@ -66,7 +70,6 @@ replace_placeholders() {
 
 pick_random_value() {
   local values=($@)
-  local random_seed=$(date +%N)
-  local random_index=$((random_seed % ${#values[@]} + 1))
+  local random_index=$((RANDOM % ${#values[@]} + 1))
   print ${values[random_index]}
 }
