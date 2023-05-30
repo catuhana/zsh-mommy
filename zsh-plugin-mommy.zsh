@@ -11,7 +11,6 @@ MOMMY_POSITIVE_RESPONSES=(
   'that'\''s a good {AFFECTIONATE_TERM}~ ❤️'
   '{MOMMYS_ROLE} is so proud of {MOMMYS_PRONOUN} {AFFECTIONATE_TERM}~ ❤️'
 )
-
 MOMMY_NEGATIVE_RESPONSES=(
   '{MOMMYS_ROLE} believes in you~ ❤️'
   'do you need {MOMMYS_ROLE}'\''s help~? ❤️'
@@ -25,63 +24,50 @@ MOMMY_NEGATIVE_RESPONSES=(
 )
 
 MOMMY_AFFECTIONATE_TERM_PLACEHOLDER='{AFFECTIONATE_TERM}'
-MOMMY_MOMMYS_PRONOUN_PLACEHOLDER='{MOMMYS_PRONOUN}'
+MOMMY_PRONOUN_PLACEHOLDER='{MOMMYS_PRONOUN}'
 MOMMY_MOMMYS_ROLE_PLACEHOLDER='{MOMMYS_ROLE}'
 
 MOMMY_AFFECTIONATE_TERM=(girl)
-MOMMY_MOMMYS_PRONOUN=(her)
+MOMMY_PRONOUN=(her)
 MOMMY_MOMMYS_ROLE=(mommy)
 
-precmd_functions+=(_mommy)
+precmd_functions+=_plugin_mommy
 
-last_command_exit_status=0
-precmd() {
-  last_command_exit_status=$?
-}
-
-_mommy() {
-  RANDOM=$(date +%N)
-
-  if [[ $last_command_exit_status -eq 0 ]]; then
-    echo $(replace_placeholders ${MOMMY_RESPONSE_TYPES[1]})
+_plugin_mommy() {
+  if [[ $? -eq 0 ]]; then
+    print $(create_response ${MOMMY_RESPONSE_TYPES[1]})
   else
-    echo $(replace_placeholders ${MOMMY_RESPONSE_TYPES[2]})
-  fi
-
-  return $last_command_exit_status
-}
-
-pick_option() {
-  local options=($@)
-  local index=$((RANDOM % ${#options[@]} + 1))
-  echo ${options[index]}
-}
-
-pick_response() {
-  if [[ $1 == ${MOMMY_RESPONSE_TYPES[1]} ]]; then
-    local index=$((RANDOM % ${#MOMMY_POSITIVE_RESPONSES[@]} + 1))
-    echo ${MOMMY_POSITIVE_RESPONSES[index]}
-  elif [[ $1 == ${MOMMY_RESPONSE_TYPES[2]} ]]; then
-    local index=$((RANDOM % ${#MOMMY_NEGATIVE_RESPONSES[@]} + 1))
-    echo ${MOMMY_NEGATIVE_RESPONSES[index]}
+    print $(create_response ${MOMMY_RESPONSE_TYPES[2]})
   fi
 }
 
-random_values() {
-  local random_affectionate_term=$(pick_option $MOMMY_AFFECTIONATE_TERM)
-  local random_pronoun=$(pick_option $MOMMY_MOMMYS_PRONOUN)
-  local random_mommys_role=$(pick_option $MOMMY_MOMMYS_ROLE)
+create_response() {
+  local random_affectionate_term=$(pick_random_value $MOMMY_AFFECTIONATE_TERM)
+  local random_pronoun=$(pick_random_value $MOMMY_PRONOUN)
+  local random_role=$(pick_random_value $MOMMY_MOMMYS_ROLE)
 
-  echo $random_affectionate_term $random_pronoun $random_mommys_role
+  if [[ ${@[1]} == ${MOMMY_RESPONSE_TYPES[1]} ]]; then
+    local random_response=$(pick_random_value $MOMMY_POSITIVE_RESPONSES)
+    random_response=$(replace_placeholders $random_response $random_affectionate_term $random_pronoun $random_role)
+    print "$random_response"
+  else
+    local random_response=$(pick_random_value $MOMMY_NEGATIVE_RESPONSES)
+    random_response=$(replace_placeholders $random_response $random_affectionate_term $random_pronoun $random_role)
+    print "$random_response"
+  fi
 }
 
 replace_placeholders() {
-  local values=($(random_values))
-  local response=$(pick_response $1)
+  local response=${@[1]}
+  response=${response//$MOMMY_AFFECTIONATE_TERM_PLACEHOLDER/${@[2]}}
+  response=${response//$MOMMY_PRONOUN_PLACEHOLDER/${@[3]}}
+  response=${response//$MOMMY_MOMMYS_ROLE_PLACEHOLDER/${@[4]}}
+  print "$response"
+}
 
-  local replaced_response=${response//$MOMMY_AFFECTIONATE_TERM_PLACEHOLDER/${values[1]}}
-  local replaced_response=${replaced_response//$MOMMY_MOMMYS_PRONOUN_PLACEHOLDER/${values[2]}}
-  local replaced_response=${replaced_response//$MOMMY_MOMMYS_ROLE_PLACEHOLDER/${values[3]}}
-
-  echo $replaced_response
+pick_random_value() {
+  local values=($@)
+  local random_seed=$(date +%N)
+  local random_index=$((random_seed % ${#values[@]} + 1))
+  print ${values[random_index]}
 }
