@@ -31,7 +31,7 @@ MOMMY_AFFECTIONATE_TERM=(girl)
 MOMMY_MOMMYS_PRONOUN=(her)
 MOMMY_MOMMYS_ROLE=(mommy)
 
-precmd_functions+=_plugin_mommy
+precmd_functions+=_mommy
 
 _mommy() {
   if [[ $? -eq 0 ]]; then
