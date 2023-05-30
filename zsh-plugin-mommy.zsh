@@ -48,13 +48,12 @@ create_response() {
 
   if [[ ${@[1]} == ${MOMMY_RESPONSE_TYPES[1]} ]]; then
     local random_response=$(pick_random_value $MOMMY_POSITIVE_RESPONSES)
-    random_response=$(replace_placeholders $random_response $random_affectionate_term $random_pronoun $random_role)
-    print "$random_response"
   else
     local random_response=$(pick_random_value $MOMMY_NEGATIVE_RESPONSES)
-    random_response=$(replace_placeholders $random_response $random_affectionate_term $random_pronoun $random_role)
-    print "$random_response"
   fi
+  random_response=$(replace_placeholders $random_response $random_affectionate_term $random_pronoun $random_role)
+
+  print "$random_response"
 }
 
 replace_placeholders() {
