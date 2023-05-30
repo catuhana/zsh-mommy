@@ -1,57 +1,57 @@
-# ZSH Mommy
+# ZSH Mommy~ ❤️
 
-Inspired from [Gankra/cargo-mommy](https://github.com/Gankra/cargo-mommy)~ ❤️
+<sup>Inspired from [Gankra/cargo-mommy](https://github.com/Gankra/cargo-mommy) ❤️</sup>
 
 Mommy is here to support you when you're running commands~
 
 ## Installation
 
 <details>
-  <summary>Manually</summary>
+  <summary>Manually :3</summary>
 
-  Clone Git repository~
+  Clone the Git repository~
 
   ```sh
-  git clone https://github.com/tuhanayim/zsh-plugin-mommy.git
+  git clone https://github.com/tuhanayim/zsh-mommy.git
   ```
 
   Source it to your `.zshrc`~
 
   ```sh
-  echo 'source "${(q-)PWD}/zsh-plugin-mommy/zsh-plugin-mommy.zsh"' >>${ZDOTDIR:-$HOME}/.zshrc
+  echo 'source "${(q-)PWD}/zsh-mommy/zsh-mommy.zsh"' >>${ZDOTDIR:-$HOME}/.zshrc
   ```
 
   And reload your shell~
 </details>
 
 <details>
-  <summary>Plugin Frameworks</summary>
+  <summary>Plugin Frameworks :3</summary>
 
   ### Oh My ZSH
 
   Clone Git repository into `~/.oh-my-zsh/custom`~
 
   ```sh
-  git clone https://github.com/tuhanayim/zsh-plugin-mommy.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-plugin-mommy
+  git clone https://github.com/tuhanayim/zsh-mommy.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-mommy
   ```
 
   Add plugin to `plugins` variable in `.zshrc`~
 
   ```sh
-  plugins=(zsh-plugin-mommy)
+  plugins=(zsh-mommy)
   ```
 
   ### zimfw
 
-  Add `zmodule tuhanayim/zsh-plugin-mommy` to your `.zimrc` and run `zimfw install`~
+  Add `zmodule tuhanayim/zsh-mommy` to your `.zimrc` and run `zimfw install`~
 
   ### zgen/zplugin
 
-  Add `zgen/zplugin load tuhanayim/zsh-plugin-mommy` to your `.zshrc`~
+  Add `zgen/zplugin load tuhanayim/zsh-mommy` to your `.zshrc`~
 
   ### Antigen
 
-  Add `antigen bundle tuhanayim/zsh-plugin-mommy` to your `.zshrc`~
+  Add `antigen bundle tuhanayim/zsh-mommy` to your `.zshrc`~
 </details>
 
 ## Customization

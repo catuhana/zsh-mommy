@@ -33,7 +33,7 @@ MOMMY_MOMMYS_ROLE=(mommy)
 
 precmd_functions+=_plugin_mommy
 
-_plugin_mommy() {
+_mommy() {
   if [[ $? -eq 0 ]]; then
     print $(create_response ${MOMMY_RESPONSE_TYPES[1]})
   else

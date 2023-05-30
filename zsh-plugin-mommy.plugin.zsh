@@ -1,1 +1,0 @@
-zsh-plugin-mommy.zsh
