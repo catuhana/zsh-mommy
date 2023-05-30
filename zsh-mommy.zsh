@@ -24,11 +24,11 @@ MOMMY_NEGATIVE_RESPONSES=(
 )
 
 MOMMY_AFFECTIONATE_TERM_PLACEHOLDER='{AFFECTIONATE_TERM}'
-MOMMY_PRONOUN_PLACEHOLDER='{MOMMYS_PRONOUN}'
+MOMMY_MOMMYS_PRONOUNPRONOUN_PLACEHOLDER='{MOMMYS_PRONOUN}'
 MOMMY_MOMMYS_ROLE_PLACEHOLDER='{MOMMYS_ROLE}'
 
 MOMMY_AFFECTIONATE_TERM=(girl)
-MOMMY_PRONOUN=(her)
+MOMMY_MOMMYS_PRONOUN=(her)
 MOMMY_MOMMYS_ROLE=(mommy)
 
 precmd_functions+=_plugin_mommy
@@ -47,7 +47,7 @@ precmd() {
 
 create_response() {
   local random_affectionate_term=$(pick_random_value $MOMMY_AFFECTIONATE_TERM)
-  local random_pronoun=$(pick_random_value $MOMMY_PRONOUN)
+  local random_pronoun=$(pick_random_value $MOMMY_MOMMYS_PRONOUN)
   local random_role=$(pick_random_value $MOMMY_MOMMYS_ROLE)
 
   if [[ ${@[1]} == ${MOMMY_RESPONSE_TYPES[1]} ]]; then
@@ -63,7 +63,7 @@ create_response() {
 replace_placeholders() {
   local response=${@[1]}
   response=${response//$MOMMY_AFFECTIONATE_TERM_PLACEHOLDER/${@[2]}}
-  response=${response//$MOMMY_PRONOUN_PLACEHOLDER/${@[3]}}
+  response=${response//$MOMMY_MOMMYS_PRONOUN_PLACEHOLDER/${@[3]}}
   response=${response//$MOMMY_MOMMYS_ROLE_PLACEHOLDER/${@[4]}}
   print "$response"
 }
