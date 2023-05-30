@@ -58,7 +58,7 @@ Mommy is h-h-hewe t-to suppowt you when you'we wunnying commands \<3
 
 - `MOMMY_AFFECTIONATE_TERM` - what t-to caww you, cutie :3 (defauwt: girl)
 - `MOMMY_MOMMYS_PRONOUN` - what pwonyouns mommy wiww use fow themsewf \<3 (defauwt: her)
-- `MOMMY_MOMMYS_ROLE` - what wowe mommy wiww have UwU (default: mommy)
+- `MOMMY_MOMMYS_ROLE` - what wowe mommy wiww have UwU (defauwt: mommy)
 
 To add nyew tewms/pwonyouns/wowes t-to mommy, simpwy add these t-to youw `.zshwc`~
 
