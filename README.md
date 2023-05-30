@@ -1,41 +1,41 @@
 # ZSH Mommy~ ❤️
 
-<sup>Inspired from [Gankra/cargo-mommy](https://github.com/Gankra/cargo-mommy) ❤️</sup>
+<sup>Inspiwed fwom [Gankra/cargo-mommy](https://github.com/Gankra/cargo-mommy) :3 ❤️</sup>
 
-Mommy is here to support you when you're running commands~
+Mommy is h-h-hewe t-to suppowt you when you'we wunnying commands \<3
 
-## Installation
+## Instawwation~
 
 <details>
-  <summary>Manually :3</summary>
+  <summary>Manyuawwy~</summary>
 
-  Clone the Git repository~
+  Cwonye the Git wepositowy~
 
   ```sh
   git clone https://github.com/tuhanayim/zsh-mommy.git
   ```
 
-  Source it to your `.zshrc`~
+  Souwce i-it t-to youw `.zshwc` OwO
 
   ```sh
   echo 'source "${(q-)PWD}/zsh-mommy/zsh-mommy.zsh"' >>${ZDOTDIR:-$HOME}/.zshrc
   ```
 
-  And reload your shell~
+  And wewoad youw sheww >///<
 </details>
 
 <details>
-  <summary>Plugin Frameworks :3</summary>
+  <summary>P-Pwugin Fwamewowks~</summary>
 
   ### Oh My ZSH
 
-  Clone Git repository into `~/.oh-my-zsh/custom`~
+  Cwonye Git wepositowy into `~/.oh-my-zsh/custom` nya~
 
   ```sh
   git clone https://github.com/tuhanayim/zsh-mommy.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-mommy
   ```
 
-  Add plugin to `plugins` variable in `.zshrc`~
+  Add pwugin t-to `plugins` vawiabwe in `.zshrc` ^-^
 
   ```sh
   plugins=(zsh-mommy)
@@ -43,27 +43,27 @@ Mommy is here to support you when you're running commands~
 
   ### zimfw
 
-  Add `zmodule tuhanayim/zsh-mommy` to your `.zimrc` and run `zimfw install`~
+  Add `zmodule tuhanayim/zsh-mommy` t-to youw `.zimrc` and wun `zimfw install` :3
 
   ### zgen/zplugin
 
-  Add `zgen/zplugin load tuhanayim/zsh-mommy` to your `.zshrc`~
+  Add `zgen/zplugin load tuhanayim/zsh-mommy` t-to youw `.zshrc`~
 
   ### Antigen
 
-  Add `antigen bundle tuhanayim/zsh-mommy` to your `.zshrc`~
+  Add `antigen bundle tuhanayim/zsh-mommy` t-to youw `.zshrc` ;;w;;
 </details>
 
-## Customization
+## Customisation~
 
-- `MOMMY_AFFECTIONATE_TERM` - what to call you~ (default: girl)
-- `MOMMY_MOMMYS_PRONOUN` - what pronouns mommy will use for themself~ (default: her)
-- `MOMMY_MOMMYS_ROLE` - what role mommy will have~ (default: mommy)
+- `MOMMY_AFFECTIONATE_TERM` - what t-to caww you, cutie :3 (defauwt: girl)
+- `MOMMY_PRONOUN` - what pwonyouns mommy wiww use fow themsewf \<3 (defauwt: her)
+- `MOMMY_MOMMYS_ROLE` - what wowe mommy wiww have UwU (default: mommy)
 
-To add new terms/pronouns/roles to mommy, simply add these to your `.zshrc`~
+To add nyew tewms/pwonyouns/wowes t-to mommy, simpwy add these t-to youw `.zshwc`~
 
 ```sh
-MOMMY_AFFECTIONATE_TERM+=(honey cat cutie)
-MOMMY_MOMMYS_PRONOUN+=(his their)
-MOMMY_MOMMYS_ROLE+=(daddy granny)
+MOMMY_AFFECTIONATE_TERM+=(cat cutie)
+MOMMY_PRONOUN+=(their its)
+MOMMY_MOMMYS_ROLE+=(owner)
 ```
