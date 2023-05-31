@@ -31,14 +31,21 @@ ZSH_MOMMY_AFFECTIONATE_TERM=(girl)
 ZSH_MOMMY_MOMMYS_PRONOUN=(her)
 ZSH_MOMMY_MOMMYS_ROLE=(mommy)
 
-precmd_functions+=_mommy
+# ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND=false
+
+if [[ ! $ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND ]]; then
+  precmd_functions+=_mommy
+else
+  mommy() {
+    eval "$@"
+    _mommy $?
+  }
+fi
 
 _mommy() {
-  if [[ $? -eq 0 ]]; then
-    print $(create_response ${ZSH_MOMMY_RESPONSE_TYPES[1]})
-  else
-    print $(create_response ${ZSH_MOMMY_RESPONSE_TYPES[2]})
-  fi
+  local command_status=${1:-$?}
+  local response_type_index=$((command_status == 0 ? 1 : 2))
+  print $(create_response ${ZSH_MOMMY_RESPONSE_TYPES[$response_type_index]})
 }
 
 precmd() {
