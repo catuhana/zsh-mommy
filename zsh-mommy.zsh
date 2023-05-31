@@ -37,8 +37,7 @@ if [[ ! $ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND ]]; then
   precmd_functions+=_mommy
 else
   mommy() {
-    eval "$@"
-    _mommy $?
+    eval "$@" ; _mommy $?
   }
 fi
 

@@ -56,14 +56,26 @@ Mommy is h-h-hewe t-to suppowt you when you'we wunnying commands \<3
 
 ## Customisation~
 
+To customise the pwugin, you c-can simpwy definye pwugin vawiabwes youwsewf, ow add nyew onyes t-to them **a-a-aftew the pwugin is woaded** :3
+
+Fow exampwe, t-to append affectionyate tewms and wowes t-to the cuwwent onyes, you c-can do this:
+
+```sh
+ZSH_MOMMY_AFFECTIONATE_TERM+=(cat cutie)
+ZSH_MOMMY_MOMMYS_ROLE+=(owner)
+```
+
+### Tewms/Tewms/Wowes~
+
 - `MOMMY_AFFECTIONATE_TERM` - what t-to caww you, cutie :3 (defauwt: girl)
 - `MOMMY_MOMMYS_PRONOUN` - what pwonyouns mommy wiww use fow themsewf \<3 (defauwt: her)
 - `MOMMY_MOMMYS_ROLE` - what wowe mommy wiww have UwU (defauwt: mommy)
 
-To add nyew tewms/pwonyouns/wowes t-to mommy, simpwy add these t-to youw `.zshwc`~
+### When t-to Wun Mommy >///<
+
+If you dont w-want mommy t-to wun on evewy command, but o-on-demand, you c-can set `ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND` t-to fawse. This wiww cweate a nyew function nyamed `mommy`, and t-to wun youw commands you c-can wwite it a-a-aftew `mommy` x3
 
 ```sh
-ZSH_MOMMY_AFFECTIONATE_TERM+=(cat cutie)
-ZSH_MOMMY_MOMMYS_PRONOUN+=(their its)
-ZSH_MOMMY_MOMMYS_ROLE+=(owner)
+mommy git status
+mommy vi ~/.zshrc
 ```
