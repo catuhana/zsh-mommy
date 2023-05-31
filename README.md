@@ -63,7 +63,7 @@ Mommy is h-h-hewe t-to suppowt you when you'we wunnying commands \<3
 To add nyew tewms/pwonyouns/wowes t-to mommy, simpwy add these t-to youw `.zshwc`~
 
 ```sh
-MOMMY_AFFECTIONATE_TERM+=(cat cutie)
-MOMMY_MOMMYS_PRONOUN+=(their its)
-MOMMY_MOMMYS_ROLE+=(owner)
+ZSH_MOMMY_AFFECTIONATE_TERM+=(cat cutie)
+ZSH_MOMMY_MOMMYS_PRONOUN+=(their its)
+ZSH_MOMMY_MOMMYS_ROLE+=(owner)
 ```

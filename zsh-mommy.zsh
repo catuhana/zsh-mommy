@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
-MOMMY_RESPONSE_TYPES=(POSITIVE NEGATIVE)
-MOMMY_POSITIVE_RESPONSES=(
+ZSH_MOMMY_RESPONSE_TYPES=(POSITIVE NEGATIVE)
+ZSH_MOMMY_POSITIVE_RESPONSES=(
   '*pets your head*'
   'you'\''re such a smart cookie~ ❤️'
   'that'\''s a good {AFFECTIONATE_TERM}~ ❤️'
@@ -11,7 +11,7 @@ MOMMY_POSITIVE_RESPONSES=(
   'that'\''s a good {AFFECTIONATE_TERM}~ ❤️'
   '{MOMMYS_ROLE} is so proud of {MOMMYS_PRONOUN} {AFFECTIONATE_TERM}~ ❤️'
 )
-MOMMY_NEGATIVE_RESPONSES=(
+ZSH_MOMMY_NEGATIVE_RESPONSES=(
   '{MOMMYS_ROLE} believes in you~ ❤️'
   'do you need {MOMMYS_ROLE}'\''s help~? ❤️'
   '{MOMMYS_ROLE} still loves you no matter what~ ❤️'
@@ -23,21 +23,21 @@ MOMMY_NEGATIVE_RESPONSES=(
   '{MOMMYS_ROLE} is here to help you through it~ ❤️'
 )
 
-MOMMY_AFFECTIONATE_TERM_PLACEHOLDER='{AFFECTIONATE_TERM}'
-MOMMY_MOMMYS_PRONOUN_PLACEHOLDER='{MOMMYS_PRONOUN}'
-MOMMY_MOMMYS_ROLE_PLACEHOLDER='{MOMMYS_ROLE}'
+ZSH_MOMMY_AFFECTIONATE_TERM_PLACEHOLDER='{AFFECTIONATE_TERM}'
+ZSH_MOMMY_MOMMYS_PRONOUN_PLACEHOLDER='{MOMMYS_PRONOUN}'
+ZSH_MOMMY_MOMMYS_ROLE_PLACEHOLDER='{MOMMYS_ROLE}'
 
-MOMMY_AFFECTIONATE_TERM=(girl)
-MOMMY_MOMMYS_PRONOUN=(her)
-MOMMY_MOMMYS_ROLE=(mommy)
+ZSH_MOMMY_AFFECTIONATE_TERM=(girl)
+ZSH_MOMMY_MOMMYS_PRONOUN=(her)
+ZSH_MOMMY_MOMMYS_ROLE=(mommy)
 
 precmd_functions+=_mommy
 
 _mommy() {
   if [[ $? -eq 0 ]]; then
-    print $(create_response ${MOMMY_RESPONSE_TYPES[1]})
+    print $(create_response ${ZSH_MOMMY_RESPONSE_TYPES[1]})
   else
-    print $(create_response ${MOMMY_RESPONSE_TYPES[2]})
+    print $(create_response ${ZSH_MOMMY_RESPONSE_TYPES[2]})
   fi
 }
 
@@ -46,14 +46,14 @@ precmd() {
 }
 
 create_response() {
-  local random_affectionate_term=$(pick_random_value $MOMMY_AFFECTIONATE_TERM)
-  local random_pronoun=$(pick_random_value $MOMMY_MOMMYS_PRONOUN)
-  local random_role=$(pick_random_value $MOMMY_MOMMYS_ROLE)
+  local random_affectionate_term=$(pick_random_value $ZSH_MOMMY_AFFECTIONATE_TERM)
+  local random_pronoun=$(pick_random_value $ZSH_MOMMY_MOMMYS_PRONOUN)
+  local random_role=$(pick_random_value $ZSH_MOMMY_MOMMYS_ROLE)
 
-  if [[ ${@[1]} == ${MOMMY_RESPONSE_TYPES[1]} ]]; then
-    local random_response=$(pick_random_value $MOMMY_POSITIVE_RESPONSES)
+  if [[ ${@[1]} == ${ZSH_MOMMY_RESPONSE_TYPES[1]} ]]; then
+    local random_response=$(pick_random_value $ZSH_MOMMY_POSITIVE_RESPONSES)
   else
-    local random_response=$(pick_random_value $MOMMY_NEGATIVE_RESPONSES)
+    local random_response=$(pick_random_value $ZSH_MOMMY_NEGATIVE_RESPONSES)
   fi
   random_response=$(replace_placeholders $random_response $random_affectionate_term $random_pronoun $random_role)
 
@@ -62,9 +62,9 @@ create_response() {
 
 replace_placeholders() {
   local response=${@[1]}
-  response=${response//$MOMMY_AFFECTIONATE_TERM_PLACEHOLDER/${@[2]}}
-  response=${response//$MOMMY_MOMMYS_PRONOUN_PLACEHOLDER/${@[3]}}
-  response=${response//$MOMMY_MOMMYS_ROLE_PLACEHOLDER/${@[4]}}
+  response=${response//$ZSH_MOMMY_AFFECTIONATE_TERM_PLACEHOLDER/${@[2]}}
+  response=${response//$ZSH_MOMMY_MOMMYS_PRONOUN_PLACEHOLDER/${@[3]}}
+  response=${response//$ZSH_MOMMY_MOMMYS_ROLE_PLACEHOLDER/${@[4]}}
   print "$response"
 }
 
