@@ -67,9 +67,9 @@ ZSH_MOMMY_MOMMYS_ROLE+=(owner)
 
 ### Tewms/Tewms/Wowes~
 
-- `MOMMY_AFFECTIONATE_TERM` - what t-to caww you, cutie :3 (defauwt: girl)
-- `MOMMY_MOMMYS_PRONOUN` - what pwonyouns mommy wiww use fow themsewf \<3 (defauwt: her)
-- `MOMMY_MOMMYS_ROLE` - what wowe mommy wiww have UwU (defauwt: mommy)
+- `ZSH_MOMMY_AFFECTIONATE_TERM` - what t-to caww you, cutie :3 (defauwt: girl)
+- `ZSH_MOMMY_MOMMYS_PRONOUN` - what pwonyouns mommy wiww use fow themsewf \<3 (defauwt: her)
+- `ZSH_MOMMY_MOMMYS_ROLE` - what wowe mommy wiww have UwU (defauwt: mommy)
 
 ### When t-to Wun Mommy >///<
 
