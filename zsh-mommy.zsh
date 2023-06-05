@@ -38,6 +38,8 @@ ZSH_MOMMY_MOMMYS_ROLE=(mommy)
 if [[ ! $ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND ]]; then
   add-zsh-hook precmd _mommy
 else
+  add-zsh-hook -d precmd _mommy
+
   mommy() {
     eval "$@" ; _mommy $?
   }
