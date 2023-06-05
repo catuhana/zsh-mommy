@@ -73,7 +73,7 @@ ZSH_MOMMY_MOMMYS_ROLE+=(owner)
 
 ### When t-to Wun Mommy >///<
 
-If you dont w-want mommy t-to wun on evewy command, but o-on-demand, you c-can set `ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND` t-to fawse. This wiww cweate a nyew function nyamed `mommy`, and t-to wun youw commands you c-can wwite it a-a-aftew `mommy` x3
+If you dont w-want mommy t-to wun on evewy command, but o-on-demand, you c-can set `ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND` t-to `false`. This wiww cweate a nyew function nyamed `mommy`, and t-to wun youw commands you c-can wwite it a-a-aftew `mommy` x3
 
 ```sh
 mommy git status
