@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+autoload -Uz add-zsh-hook
+
 ZSH_MOMMY_RESPONSE_TYPES=(POSITIVE NEGATIVE)
 ZSH_MOMMY_POSITIVE_RESPONSES=(
   '*pets your head*'
@@ -34,7 +36,7 @@ ZSH_MOMMY_MOMMYS_ROLE=(mommy)
 # ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND=false
 
 if [[ ! $ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND ]]; then
-  precmd_functions+=_mommy
+  add-zsh-hook precmd _mommy
 else
   mommy() {
     eval "$@" ; _mommy $?
