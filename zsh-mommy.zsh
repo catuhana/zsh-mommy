@@ -35,6 +35,13 @@ ZSH_MOMMY_MOMMYS_ROLE=${ZSH_MOMMY_MOMMYS_ROLE:-(mommy)}
 
 ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND=${ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND:-true}
 
+ZSH_MOMMY_COLOURED_MESSAGES=${ZSH_MOMMY_COLOURED_MESSAGES:-true}
+ZSH_MOMMY_RESPONSE_COLOUR=${ZSH_MOMMY_RESPONSE_COLOUR:-(255 179 204)}
+
+if [[ $ZSH_MOMMY_COLOURED_MESSAGES == false || $ZSH_MOMMY_COLOURED_MESSAGES -eq 0 ]] {
+  ZSH_MOMMY_COLOURED_MESSAGES=false
+}
+
 if [[ $ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND == true || $ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND -ge 1 ]] {
   add-zsh-hook precmd _mommy
 } else {
@@ -56,25 +63,34 @@ function precmd {
 }
 
 function create_response {
+  local response
+
   local random_affectionate_term=$(pick_random_value $ZSH_MOMMY_AFFECTIONATE_TERM)
   local random_pronoun=$(pick_random_value $ZSH_MOMMY_MOMMYS_PRONOUN)
   local random_role=$(pick_random_value $ZSH_MOMMY_MOMMYS_ROLE)
 
   if [[ $1 == ${ZSH_MOMMY_RESPONSE_TYPES[1]} ]] {
-    local random_response=$(pick_random_value $ZSH_MOMMY_POSITIVE_RESPONSES)
+    response=$(pick_random_value $ZSH_MOMMY_POSITIVE_RESPONSES)
   } else {
-    local random_response=$(pick_random_value $ZSH_MOMMY_NEGATIVE_RESPONSES)
+    response=$(pick_random_value $ZSH_MOMMY_NEGATIVE_RESPONSES)
   }
-  random_response=$(replace_placeholders $random_response $random_affectionate_term $random_pronoun $random_role)
 
-  print "$random_response"
+  response=$(replace_placeholders $response $random_affectionate_term $random_pronoun $random_role)
+
+  if [[ $ZSH_MOMMY_COLOURED_MESSAGES == true || $ZSH_MOMMY_COLOURED_MESSAGES -eq 1 ]] {
+    response="$(colourise_response $response)"
+  }
+
+  print "$response"
 }
 
 function replace_placeholders {
   local response=${@[1]}
+
   response=${response//$ZSH_MOMMY_AFFECTIONATE_TERM_PLACEHOLDER/${@[2]}}
   response=${response//$ZSH_MOMMY_MOMMYS_PRONOUN_PLACEHOLDER/${@[3]}}
   response=${response//$ZSH_MOMMY_MOMMYS_ROLE_PLACEHOLDER/${@[4]}}
+
   print "$response"
 }
 
@@ -82,4 +98,12 @@ function pick_random_value {
   local values=($@)
   local random_index=$((RANDOM % ${#values[@]} + 1))
   print ${values[random_index]}
+}
+
+function colourise_response {
+  print "\033[38;2;$(array_to_ansi_rbg $ZSH_MOMMY_RESPONSE_COLOUR);1m$1\033m"
+}
+
+function array_to_ansi_rbg {
+  print "${(j|;|)${@[1,3]}}"
 }
