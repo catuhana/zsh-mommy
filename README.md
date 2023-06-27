@@ -79,3 +79,10 @@ If you dont w-want mommy t-to wun on evewy command, but o-on-demand, you c-can s
 mommy git status
 mommy vi ~/.zshrc
 ```
+
+### Cowouwed W-W-Wesponses (* ^ ω ^)
+
+If you w-want mommy's messages t-to be c-cowowfuw, you c-can set `ZSH_MOMMY_COLOURED_RESPONSES` t-to enyabwe cowouwising wesponses (defauwt), and edit `ZSH_MOMMY_RESPONSE_COLOUR` as WGB t-to customise the cowouw ^~^
+
+- `ZSH_MOMMY_COLOURED_RESPONSES` - enyabwe cowouwising wesponses ow nyot! (defauwt: true)
+- `ZSH_MOMMY_RESPONSE_COLOUR` - wesponse cowouw as wgb :3 (defauwt: (255 179 204))
