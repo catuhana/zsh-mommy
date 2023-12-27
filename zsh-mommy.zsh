@@ -35,12 +35,9 @@ ZSH_MOMMY_MOMMYS_ROLE=(mommy)
 
 ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND=true
 
-ZSH_MOMMY_COLOURED_RESPONSES=true
+# ZSH_MOMMY_COLOURED_RESPONSES=true
+# ZSH_MOMMY_FORCE_COLOURED_RESPONSES=false
 ZSH_MOMMY_RESPONSE_COLOUR=(255 179 204)
-
-if [[ ! $COLORTERM =~ ^(truecolor|24bit)$ ]] || [[ $NO_COLOR == true || $NO_COLOR -ge 1 ]]; then
-  ZSH_MOMMY_COLOURED_RESPONSES=false
-fi
 
 if [[ $ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND == true || $ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND -ge 1 ]] {
   add-zsh-hook precmd _mommy
@@ -55,6 +52,11 @@ if [[ $ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND == true || $ZSH_MOMMY_RUN_AFTER_EVERY_C
 function _mommy {
   local command_status=${1:-$?}
   local response_type_index=$((command_status == 0 ? 1 : 2))
+
+  if [[ ! $COLORTERM =~ ^(truecolor|24bit)$ ]] || [[ $NO_COLOR == true || $NO_COLOR -ge 1 ]] && [[ $ZSH_MOMMY_FORCE_COLOURED_RESPONSES == false || $ZSH_MOMMY_FORCE_COLOURED_RESPONSES -eq 0 ]]; then
+    ZSH_MOMMY_COLOURED_RESPONSES=false
+  fi
+
   print $(create_response ${ZSH_MOMMY_RESPONSE_TYPES[$response_type_index]})
 }
 

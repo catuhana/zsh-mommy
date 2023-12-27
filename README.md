@@ -9,49 +9,51 @@ Mommy is h-h-hewe t-to suppowt you when you'we wunnying commands \<3
 <details>
   <summary>Manyuawwy~</summary>
 
-  Cwonye the Git wepositowy~
+Cwonye the Git wepositowy~
 
-  ```sh
-  git clone https://github.com/tuhanayim/zsh-mommy.git
-  ```
+```sh
+git clone https://github.com/catuhana/zsh-mommy.git
+```
 
-  Souwce i-it t-to youw `.zshwc` OwO
+Souwce i-it t-to youw `.zshwc` OwO
 
-  ```sh
-  echo 'source "${(q-)PWD}/zsh-mommy/zsh-mommy.zsh"' >>${ZDOTDIR:-$HOME}/.zshrc
-  ```
+```sh
+echo 'source "${(q-)PWD}/zsh-mommy/zsh-mommy.zsh"' >>${ZDOTDIR:-$HOME}/.zshrc
+```
 
-  And wewoad youw sheww >///<
+And wewoad youw sheww >///<
+
 </details>
 
 <details>
   <summary>P-Pwugin Fwamewowks~</summary>
 
-  ### Oh My ZSH
+### Oh My ZSH
 
-  Cwonye Git wepositowy into `~/.oh-my-zsh/custom` nya~
+Cwonye Git wepositowy into `~/.oh-my-zsh/custom` nya~
 
-  ```sh
-  git clone https://github.com/tuhanayim/zsh-mommy.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-mommy
-  ```
+```sh
+git clone https://github.com/catuhana/zsh-mommy.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-mommy
+```
 
-  Add pwugin t-to `plugins` vawiabwe in `.zshrc` ^-^
+Add pwugin t-to `plugins` vawiabwe in `.zshrc` ^-^
 
-  ```sh
-  plugins=(zsh-mommy)
-  ```
+```sh
+plugins=(zsh-mommy)
+```
 
-  ### zimfw
+### zimfw
 
-  Add `zmodule tuhanayim/zsh-mommy` t-to youw `.zimrc` and wun `zimfw install` :3
+Add `zmodule catuhana/zsh-mommy` t-to youw `.zimrc` and wun `zimfw install` :3
 
-  ### zgen/zplugin
+### zgen/zplugin
 
-  Add `zgen/zplugin load tuhanayim/zsh-mommy` t-to youw `.zshrc`~
+Add `zgen/zplugin load catuhana/zsh-mommy` t-to youw `.zshrc`~
 
-  ### Antigen
+### Antigen
 
-  Add `antigen bundle tuhanayim/zsh-mommy` t-to youw `.zshrc` ;;w;;
+Add `antigen bundle catuhana/zsh-mommy` t-to youw `.zshrc` ;;w;;
+
 </details>
 
 ## Customisation~
@@ -80,7 +82,7 @@ mommy git status
 mommy vi ~/.zshrc
 ```
 
-### Cowouwed W-W-Wesponses (* ^ ω ^)
+### Cowouwed W-W-Wesponses (\* ^ ω ^)
 
 If you w-want mommy's messages t-to be c-cowowfuw, you c-can set `ZSH_MOMMY_COLOURED_RESPONSES` t-to enyabwe cowouwising wesponses (defauwt), and edit `ZSH_MOMMY_RESPONSE_COLOUR` as WGB t-to customise the cowouw ^~^
 
