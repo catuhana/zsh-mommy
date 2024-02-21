@@ -76,14 +76,14 @@ If you have more response ideas for mommy, or if there's a response you want to 
 
 Current response arrays:
 
-- `ZSH_MOMMY_POSITIVE_RESPONSES`
-- `ZSH_MOMMY_NEGATIVE_RESPONSES`
+- `ZSH_MOMMY_POSITIVE_RESPONSES` - positive responses after a successful command
+- `ZSH_MOMMY_NEGATIVE_RESPONSES` - negative responses after an unsuccessful command
 
 ### Add Prefix or Suffix to Responses
 
 If you'd like mommy to be more cheerful, you can add emojis or text before or after mommy's actual responses.
 
-- `ZSH_MOMMY_RESPONSES_PREFIX` - prefix before mommy's actual response (default: ``)
+- `ZSH_MOMMY_RESPONSES_PREFIX` - prefix before mommy's actual response (default: `` *(empty string)*)
 - `ZSH_MOMMY_RESPONSES_SUFFIX` - suffix after mommy's actual response (default: `❤️`)
 
 ### Coloured Responses
