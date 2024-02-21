@@ -5,25 +5,27 @@ autoload -Uz add-zsh-hook
 ZSH_MOMMY_RESPONSE_TYPES=(POSITIVE NEGATIVE)
 ZSH_MOMMY_POSITIVE_RESPONSES=(
   '*pets your head*'
-  $'you\'re such a smart cookie~ ❤️'
-  $'that\'s a good {AFFECTIONATE_TERM}~ ❤️'
-  '{MOMMYS_ROLE} thinks {MOMMYS_PRONOUN} litle {AFFECTIONATE_TERM} earned a big hug~ ❤️'
-  $'good {AFFECTIONATE_TERM}~\n{MOMMYS_ROLE}\'s so proud of you~ ❤️'
-  'awe, what a good {AFFECTIONATE_TERM}~\n{MOMMYS_ROLE} knew you could do it~ ❤️'
-  $'that\'s a good {AFFECTIONATE_TERM}~ ❤️'
-  '{MOMMYS_ROLE} is so proud of {MOMMYS_PRONOUN} {AFFECTIONATE_TERM}~ ❤️'
+  $'you\'re such a smart cookie~'
+  $'that\'s a good {AFFECTIONATE_TERM}~'
+  '{MOMMYS_ROLE} thinks {MOMMYS_PRONOUN} litle {AFFECTIONATE_TERM} earned a big hug~'
+  $'good {AFFECTIONATE_TERM}~\n{MOMMYS_ROLE}\'s so proud of you~'
+  'awe, what a good {AFFECTIONATE_TERM}~\n{MOMMYS_ROLE} knew you could do it~'
+  $'that\'s a good {AFFECTIONATE_TERM}~'
+  '{MOMMYS_ROLE} is so proud of {MOMMYS_PRONOUN} {AFFECTIONATE_TERM}~'
 )
 ZSH_MOMMY_NEGATIVE_RESPONSES=(
-  '{MOMMYS_ROLE} believes in you~ ❤️'
-  $'do you need {MOMMYS_ROLE}\'s help~? ❤️'
-  '{MOMMYS_ROLE} still loves you no matter what~ ❤️'
-  $'oh no did {MOMMYS_ROLE}\'s little {AFFECTIONATE_TERM} made a big mess~? ❤️'
-  '{MOMMYS_ROLE} knows {MOMMYS_PRONOUN} little {AFFECTIONATE_TERM} can do better~ ❤️'
-  'just a little further, sweetie~ ❤️'
-  '{MOMMYS_ROLE} believes in you~ ❤️'
-  $'let\'s try again together my {AFFECTIONATE_TERM}~ ❤️'
-  '{MOMMYS_ROLE} is here to help you through it~ ❤️'
+  '{MOMMYS_ROLE} believes in you~'
+  $'do you need {MOMMYS_ROLE}\'s help~?'
+  '{MOMMYS_ROLE} still loves you no matter what~'
+  $'oh no did {MOMMYS_ROLE}\'s little {AFFECTIONATE_TERM} made a big mess~?'
+  '{MOMMYS_ROLE} knows {MOMMYS_PRONOUN} little {AFFECTIONATE_TERM} can do better~'
+  'just a little further, sweetie~'
+  '{MOMMYS_ROLE} believes in you~'
+  $'let\'s try again together my {AFFECTIONATE_TERM}~'
+  '{MOMMYS_ROLE} is here to help you through it~'
 )
+ZSH_MOMMY_RESPONSES_PREFIX=''
+ZSH_MOMMY_RESPONSES_SUFFIX='❤️'
 
 ZSH_MOMMY_AFFECTIONATE_TERM_PLACEHOLDER='{AFFECTIONATE_TERM}'
 ZSH_MOMMY_MOMMYS_PRONOUN_PLACEHOLDER='{MOMMYS_PRONOUN}'
@@ -35,7 +37,7 @@ ZSH_MOMMY_MOMMYS_ROLE=(mommy)
 
 ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND=true
 
-# ZSH_MOMMY_COLOURED_RESPONSES=true
+ZSH_MOMMY_COLOURED_RESPONSES=true
 # ZSH_MOMMY_FORCE_COLOURED_RESPONSES=false
 ZSH_MOMMY_RESPONSE_COLOUR=(255 179 204)
 
@@ -53,9 +55,9 @@ function _mommy {
   local command_status=${1:-$?}
   local response_type_index=$((command_status == 0 ? 1 : 2))
 
-  if [[ ! $COLORTERM =~ ^(truecolor|24bit)$ ]] || [[ $NO_COLOR == true || $NO_COLOR -ge 1 ]] && [[ $ZSH_MOMMY_FORCE_COLOURED_RESPONSES == false || $ZSH_MOMMY_FORCE_COLOURED_RESPONSES -eq 0 ]]; then
+  if [[ ! $COLORTERM =~ ^(truecolor|24bit)$ ]] || [[ $NO_COLOR == true || $NO_COLOR -ge 1 ]] && [[ $ZSH_MOMMY_FORCE_COLOURED_RESPONSES == false || $ZSH_MOMMY_FORCE_COLOURED_RESPONSES -eq 0 ]] {
     ZSH_MOMMY_COLOURED_RESPONSES=false
-  fi
+  }
 
   print $(create_response ${ZSH_MOMMY_RESPONSE_TYPES[$response_type_index]})
 }
@@ -81,6 +83,14 @@ function create_response {
 
   if [[ $ZSH_MOMMY_COLOURED_RESPONSES == true || $ZSH_MOMMY_COLOURED_RESPONSES -eq 1 ]] {
     response="$(colourise_response $response)"
+  }
+
+  if [[ ${#ZSH_MOMMY_RESPONSES_PREFIX} -gt 1 ]] {
+    response="$ZSH_MOMMY_RESPONSES_PREFIX $response"
+  }
+
+  if [[ ${#ZSH_MOMMY_RESPONSES_SUFFIX} -gt 1 ]] {
+    response="$response $ZSH_MOMMY_RESPONSES_SUFFIX"
   }
 
   print "$response"
