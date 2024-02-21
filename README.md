@@ -1,90 +1,109 @@
 # ZSH Mommy~ ❤️
 
-<sup>Inspiwed fwom [Gankra/cargo-mommy](https://github.com/Gankra/cargo-mommy) :3 ❤️</sup>
+<sup>Inspired from [Gankra/cargo-mommy](https://github.com/Gankra/cargo-mommy), made for your shell! ❤️</sup>
 
-Mommy is h-h-hewe t-to suppowt you when you'we wunnying commands \<3
+Mommy is here to support you when you're running commands~
 
-## Instawwation~
+## Installation
 
 <details>
-  <summary>Manyuawwy~</summary>
+  <summary>Manually</summary>
 
-Cwonye the Git wepositowy~
+  Clone the Git repository
 
-```sh
-git clone https://github.com/catuhana/zsh-mommy.git
-```
+  ```sh
+  git clone https://github.com/catuhana/zsh-mommy
+  ```
 
-Souwce i-it t-to youw `.zshwc` OwO
+  and source it to your .zshrc
 
-```sh
-echo 'source "${(q-)PWD}/zsh-mommy/zsh-mommy.zsh"' >>${ZDOTDIR:-$HOME}/.zshrc
-```
+  ```sh
+  echo 'source "${(q-)PWD}/zsh-mommy/zsh-mommy.zsh"' >>${ZDOTDIR:-$HOME}/.zshrc
+  ```
 
-And wewoad youw sheww >///<
-
+  and then reload your shell for mommy! ❤️
 </details>
 
 <details>
-  <summary>P-Pwugin Fwamewowks~</summary>
+  <summary>Plugin Frameworks</summary>
 
-### Oh My ZSH
+  ### Oh My ZSH
 
-Cwonye Git wepositowy into `~/.oh-my-zsh/custom` nya~
+  Clone the Git repository to `~/.oh-my-zsh/custom`
 
-```sh
-git clone https://github.com/catuhana/zsh-mommy.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-mommy
-```
+  ```sh
+  git clone https://github.com/catuhana/zsh-mommy ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-mommy
+  ```
 
-Add pwugin t-to `plugins` vawiabwe in `.zshrc` ^-^
+  and add it to your `plugins` array in `.zshrc`
 
-```sh
-plugins=(zsh-mommy)
-```
+  ```zsh
+  plugins=(zsh-mommy)
+  ```
 
-### zimfw
+  ### Zim
 
-Add `zmodule catuhana/zsh-mommy` t-to youw `.zimrc` and wun `zimfw install` :3
+  Add `zmodule catuhana/zsh-mommy` to your `.zimrc` and run `zimfw install`
 
-### zgen/zplugin
+  ### zgen/zplugin
 
-Add `zgen/zplugin load catuhana/zsh-mommy` t-to youw `.zshrc`~
+  Add `zgen/zplugin load catuhana/zsh-mommy` to your `.zshrc`
 
-### Antigen
+  ### Antigen
 
-Add `antigen bundle catuhana/zsh-mommy` t-to youw `.zshrc` ;;w;;
-
+  Add `antigen bundle catuhana/zsh-mommy` to your `.zshrc`
 </details>
 
-## Customisation~
+## Customisation
 
-To customise the pwugin, you c-can simpwy definye pwugin vawiabwes youwsewf, ow add nyew onyes t-to them **a-a-aftew the pwugin is woaded** :3
+To customise the plugin, you can edit variables the plugin uses after the plugin is loaded.
 
-Fow exampwe, t-to append affectionyate tewms and wowes t-to the cuwwent onyes, you c-can do this:
+For example, to apppend or change new pronouns or affectionate terms, you can add:
 
 ```sh
 ZSH_MOMMY_AFFECTIONATE_TERM+=(cat cutie)
-ZSH_MOMMY_MOMMYS_ROLE+=(owner)
+ZSH_MOMMY_MOMMYS_ROLE=(owner)
 ```
 
-### Tewms/Tewms/Wowes~
+Or if you want it to be for your current shell only, you can define them with `export`.
 
-- `ZSH_MOMMY_AFFECTIONATE_TERM` - what t-to caww you, cutie :3 (defauwt: girl)
-- `ZSH_MOMMY_MOMMYS_PRONOUN` - what pwonyouns mommy wiww use fow themsewf \<3 (defauwt: her)
-- `ZSH_MOMMY_MOMMYS_ROLE` - what wowe mommy wiww have UwU (defauwt: mommy)
+### Add Your Own Responses
 
-### When t-to Wun Mommy >///<
+If you have more response ideas for mommy, or if there's a response you want to remove, you can update `ZSH_MOMMY_POSITIVE_RESPONSES` or `ZSH_MOMMY_POSITIVE_RESPONSES` arrays.
 
-If you dont w-want mommy t-to wun on evewy command, but o-on-demand, you c-can set `ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND` t-to `false`. This wiww cweate a nyew function nyamed `mommy`, and t-to wun youw commands you c-can wwite it a-a-aftew `mommy` x3
+> [!TIP]
+> I would appreciate if you contribute your own responses to mommy! Just make sure that they fit the theme of current responses.
+
+Current response arrays:
+
+- `ZSH_MOMMY_POSITIVE_RESPONSES`
+- `ZSH_MOMMY_NEGATIVE_RESPONSES`
+
+### Add Prefix or Suffix to Responses
+
+If you'd like mommy to be more cheerful, you can add emojis or text before or after mommy's actual responses.
+
+- `ZSH_MOMMY_RESPONSES_PREFIX` - prefix before mommy's actual response (default: ``)
+- `ZSH_MOMMY_RESPONSES_SUFFIX` - suffix after mommy's actual response (default: `❤️`)
+
+### Coloured Responses
+
+If you want mommy to be more colourful, you can set `ZSH_MOMMY_COLOURED_RESPONSES` to `true` or `1`, which is the default. The colour of the response is also customisable.
+
+- `ZSH_MOMMY_COLOURED_RESPONSES` - make mommy more colourful (default: `true`)
+- `ZSH_MOMMY_RESPONSE_COLOUR` - decide what colour mommy should use (default: `(255 179 204)`)
+
+### Terms, Pronouns and Roles
+
+- `ZSH_MOMMY_AFFECTIONATE_TERM` - what mommy calls you (default: `(girl)`)
+- `ZSH_MOMMY_MOMMYS_PRONOUN` - what mommy will use as their pronouns (default: `(her)`)
+- `ZSH_MOMMY_MOMMYS_ROLE` - the role of mommy (default: `(mommy)`)
+
+### When to Run Mommy
+
+If you want mommy to response on demand instead, you can set `ZSH_MOMMY_RUN_AFTER_EVERY_COMMAND` variable to `false` or `0` before the plugin is loaded. This will create a new function named `mommy`, which accepts your normal command input and runs them.
 
 ```sh
-mommy git status
-mommy vi ~/.zshrc
+mommy vim ~/.zshrc
+mommy git push -f
 ```
-
-### Cowouwed W-W-Wesponses (\* ^ ω ^)
-
-If you w-want mommy's messages t-to be c-cowowfuw, you c-can set `ZSH_MOMMY_COLOURED_RESPONSES` t-to enyabwe cowouwising wesponses (defauwt), and edit `ZSH_MOMMY_RESPONSE_COLOUR` as WGB t-to customise the cowouw ^~^
-
-- `ZSH_MOMMY_COLOURED_RESPONSES` - enyabwe cowouwising wesponses ow nyot! (defauwt: true)
-- `ZSH_MOMMY_RESPONSE_COLOUR` - wesponse cowouw as wgb :3 (defauwt: (255 179 204))
