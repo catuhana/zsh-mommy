@@ -7,9 +7,9 @@ ZSH_MOMMY_POSITIVE_RESPONSES=(
   '*pets your head*'
   $'you\'re such a smart cookie~'
   $'that\'s a good {AFFECTIONATE_TERM}~'
-  '{MOMMYS_ROLE} thinks {MOMMYS_PRONOUN} litle {AFFECTIONATE_TERM} earned a big hug~'
+  '{MOMMYS_ROLE} thinks {MOMMYS_PRONOUN} little {AFFECTIONATE_TERM} earned a big hug~'
   $'good {AFFECTIONATE_TERM}~\n{MOMMYS_ROLE}\'s so proud of you~'
-  'awe, what a good {AFFECTIONATE_TERM}~\n{MOMMYS_ROLE} knew you could do it~'
+  'aww, what a good {AFFECTIONATE_TERM}~\n{MOMMYS_ROLE} knew you could do it~'
   $'that\'s a good {AFFECTIONATE_TERM}~'
   '{MOMMYS_ROLE} is so proud of {MOMMYS_PRONOUN} {AFFECTIONATE_TERM}~'
 )

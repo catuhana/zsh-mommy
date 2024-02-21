@@ -58,7 +58,7 @@ Mommy is here to support you when you're running commands~
 
 To customise the plugin, you can edit variables the plugin uses after the plugin is loaded.
 
-For example, to apppend or change new pronouns or affectionate terms, you can add:
+For example, to append or change new pronouns or affectionate terms, you can add:
 
 ```sh
 ZSH_MOMMY_AFFECTIONATE_TERM+=(cat cutie)
