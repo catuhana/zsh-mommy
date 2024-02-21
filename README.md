@@ -90,8 +90,12 @@ If you'd like mommy to be more cheerful, you can add emojis or text before or af
 
 If you want mommy to be more colourful, you can set `ZSH_MOMMY_COLOURED_RESPONSES` to `true` or `1`, which is the default. The colour of the response is also customisable.
 
+If your shell doesn't appear to be supporting colours by the plugin, you can set `ZSH_MOMMY_FORCE_COLOURED_RESPONSES` to `true` for forcing mommy to colour her responses.
+
 - `ZSH_MOMMY_COLOURED_RESPONSES` - make mommy more colourful (default: `true`)
 - `ZSH_MOMMY_RESPONSE_COLOUR` - decide what colour mommy should use (default: `(255 179 204)`)
+- `ZSH_MOMMY_FORCE_COLOURED_RESPONSES` - force mommy to add colours to her response (default: `false`)
+
 
 ### Terms, Pronouns and Roles
 
